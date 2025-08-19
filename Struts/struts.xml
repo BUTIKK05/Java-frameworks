@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="todos" class="org.example.actions.TodoAction" method="execute">
+            <result>/WEB-INF/views/todos.jsp</result>
+        </action>
+
+        <action name="todos/add" class="org.example.actions.TodoAction" method="add">
+            <result type="redirectAction">todos</result>
+            <result name="input">/WEB-INF/views/todos.jsp</result>
+        </action>
+
+        <action name="todos/delete" class="org.example.actions.TodoAction" method="delete">
+            <result type="redirectAction">todos</result>
+        </action>
+
+        <action name="todos/clear" class="org.example.actions.TodoAction" method="clearAll">
+            <result type="redirectAction">todos</result>
+        </action>
+    </package>
+</struts>
